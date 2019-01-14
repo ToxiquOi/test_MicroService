@@ -1,22 +1,34 @@
 package com.ecommerce.microcommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//@JsonIgnoreProperties(value = {"id", "prixAchat"})
+@Entity
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private String nom;
     private int prix;
+    private int prixAchat;
 
-    // constructeur défaut
+    //constructeur défaut
     public Product(){
 
     }
 
-    public Product(int id, String nom, int prix) {
-        this.id = id;
+    public Product(String nom, int prix, int prixAchat) {
         this.nom = nom;
         this.prix = prix;
+        this.prixAchat = prixAchat;
     }
-
 
     public int getId() {
         return id;
@@ -42,12 +54,11 @@ public class Product {
         this.prix = prix;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prix=" + prix +
-                '}';
+    public int getPrixAchat() {
+        return prixAchat;
+    }
+
+    public void setPrixAchat(int prixAchat) {
+        this.prixAchat = prixAchat;
     }
 }
