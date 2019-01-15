@@ -1,6 +1,7 @@
 package com.ecommerce.microcommerce.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,11 @@ public class Product {
     private int id;
 
     private String nom;
+
+    @length(min=10, max=50000)
     private int prix;
+
+    @Min(value = 1)
     private int prixAchat;
 
     //constructeur défaut
