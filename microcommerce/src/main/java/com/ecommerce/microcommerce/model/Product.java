@@ -1,12 +1,12 @@
 package com.ecommerce.microcommerce.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import
-
+import org.hibernate.validator.constraints.Length;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 //@JsonIgnoreProperties(value = {"id", "prixAchat"})
 @Entity
@@ -18,7 +18,7 @@ public class Product {
 
     private String nom;
 
-    @length(min=10, max=50000)
+    @Length(min=10, max=50000)
     private int prix;
 
     @Min(value = 1)
@@ -65,5 +65,15 @@ public class Product {
 
     public void setPrixAchat(int prixAchat) {
         this.prixAchat = prixAchat;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prix=" + prix +
+                ", prixAchat=" + prixAchat +
+                '}';
     }
 }
