@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.List;
 
+
 @Api(description = "API pour les opération CRUD sur les produits.")
 @RestController
 public class ProductController {
@@ -62,6 +63,7 @@ public class ProductController {
             throw new ExceptionProduitGratuit("le produit que vous tenter d'ajouter ne peut pas etre gratuit il vaut au minimum 1");
         }
         else {
+
             Product productSaved = productDao.save(product);
 
             if(productSaved == null)

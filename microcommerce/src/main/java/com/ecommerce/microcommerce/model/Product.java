@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.*;
 
-//@JsonIgnoreProperties(value = {"id", "prixAchat"})
+@JsonIgnoreProperties(value = {"id", "prixAchat"})
 @Entity
 public class Product {
 
