@@ -60,16 +60,17 @@ public class ProductController {
     public ResponseEntity<Void> ajouterProduit(@RequestBody Product product) throws ExceptionProduitGratuit {
 
         if(product.getPrix() <= 0) {
-            throw new ExceptionProduitGratuit("le produit que vous tenter d'ajouter ne peut pas etre gratuit il vaut au minimum 1");
+           throw new ExceptionProduitGratuit("le produit que vous tenter d'ajouter ne peut pas etre gratuit il vaut au minimum 1");
         }
         else {
-
+            System.out.println("------------------ " +product.toString()+"-----------------------------------------------" );
             Product productSaved = productDao.save(product);
-
             if(productSaved == null)
             {
                 return ResponseEntity.noContent().build();
             }
+
+            System.out.println("------------------ " +productSaved.toString()+"-----------------------------------------------" );
 
             URI location = ServletUriComponentsBuilder
                     .fromCurrentRequest()
